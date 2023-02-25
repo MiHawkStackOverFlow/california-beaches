@@ -1,0 +1,1 @@
+export const CALIFORNIA_BEACHES_API_URL = 'https://api.coastal.ca.gov/access/v1/locations'; 

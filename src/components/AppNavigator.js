@@ -8,7 +8,7 @@ export default function AppNavigator() {
   return (
     <AppBar position="fixed" variant="h6" color="primary" enableColorOnDark>
       <Toolbar variant="dense">
-        <Link component="button" to="/">
+        <Link to="/">
           <Typography>Beaches</Typography>
         </Link>
       </Toolbar>
