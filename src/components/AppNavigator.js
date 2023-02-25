@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 export default function AppNavigator() {
   return (
-    <AppBar position="fixed" variant="h6" color="primary" enableColorOnDark>
+    <AppBar position="fixed" color="primary" enableColorOnDark>
       <Toolbar variant="dense">
         <Link to="/">
-          <Typography>Beaches</Typography>
+          <Typography variant="h6">Beaches</Typography>
         </Link>
       </Toolbar>
     </AppBar>
