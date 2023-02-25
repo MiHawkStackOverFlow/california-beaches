@@ -7,7 +7,6 @@ export default function App() {
   return (
     <Router>
         <AppNavigator></AppNavigator>
-        <br />
         <Route path="/" component={Beaches}></Route>
     </Router>
   )
