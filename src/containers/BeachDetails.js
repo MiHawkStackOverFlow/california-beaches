@@ -6,6 +6,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { connect } from 'react-redux';
 
 const checkURL = (url) => {
   return(url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -24,7 +25,7 @@ const theme = createTheme({
   }
 });
 
-export default class BeachDetails extends Component {
+class BeachDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -137,3 +138,14 @@ export default class BeachDetails extends Component {
     }
   }
 }
+
+
+const mapStateToProps = (state) => ({
+
+});
+
+const mapDispatchToProps = (dispatch) => ({ 
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BeachDetails);
