@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import AppNavigator from "./components/AppNavigator";
 import BeachDetails from "./containers/BeachDetails";
@@ -14,9 +14,11 @@ export default function App() {
       <PersistGate loading={null} persistor={persistor}>
         <Router>
           <AppNavigator></AppNavigator>
-          <Route exact path="/" component={Beaches}></Route>
-          <Route exact path="/beach/:id" component={BeachDetails}></Route>
-          <Route exact path="/favourites" component={Favourites}></Route>
+          <Routes>
+            <Route exact path="/" element={<Beaches/>}></Route>
+            <Route exact path="/beach/:id" element={<BeachDetails />}></Route>
+            <Route exact path="/favourites" element={<Favourites />}></Route>
+          </Routes>
         </Router>
       </PersistGate>
     </Provider>

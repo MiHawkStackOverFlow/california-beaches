@@ -9,6 +9,12 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { connect } from 'react-redux';
 import { toggleFavourite } from '../redux/actions';
 
+import { useParams } from "react-router-dom";
+
+function withParams(Component) {
+  return props => <Component {...props} params={useParams()} />;
+}
+
 const checkURL = (url) => {
   return(url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null);
 }
@@ -35,8 +41,7 @@ class BeachDetails extends Component {
   }
   
   componentDidMount() {
-    const { match } = this.props;
-    const { id } = match?.params;
+    let { id } = this.props.params;
     axios.get(CALIFORNIA_BEACHES_API_URL + '/id/' + id).then((response) => {
       if(response.status >= 200 && response.status < 300) {
         let currentBeach = response.data[0];
@@ -69,8 +74,7 @@ class BeachDetails extends Component {
   }
 
   render() {
-    console.log('fav prop', this.props.favourites);
-    const { beach } = this.state;
+    let { beach } = this.state;
     if (beach) {
       const name = beach.name;
       // TODO: Try an image slider later https://github.com/alielkhateeb/mui-image-slider
@@ -149,7 +153,7 @@ class BeachDetails extends Component {
         </ThemeProvider>
       )
     } else {
-      return <CircularProgress />
+      return <CircularProgress style={{ marginTop: 100, marginLeft: 150 }} />
     }
   }
 }
@@ -163,4 +167,4 @@ const mapDispatchToProps = (dispatch) => ({
   toggleFavourite: (beach) => dispatch(toggleFavourite(beach))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BeachDetails);
+export default withParams((connect(mapStateToProps, mapDispatchToProps))(BeachDetails));
