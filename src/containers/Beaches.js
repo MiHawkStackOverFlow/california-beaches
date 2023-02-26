@@ -5,7 +5,7 @@ import BeachCard from "../components/BeachCard";
 import { CALIFORNIA_BEACHES_API_URL } from '../config';
 
 const checkURL = (url) => {
-  return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+  return(url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null);
 }
 
 export default function Beaches() {
