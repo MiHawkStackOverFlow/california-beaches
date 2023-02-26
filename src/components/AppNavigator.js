@@ -11,6 +11,9 @@ export default function AppNavigator() {
         <Link to="/">
           <Typography variant="h6">Beaches</Typography>
         </Link>
+        <Link to="/favourites">
+          <Typography variant="h6" style={{ marginLeft: 15 }}>Favourites</Typography>
+        </Link>
       </Toolbar>
     </AppBar>
   )

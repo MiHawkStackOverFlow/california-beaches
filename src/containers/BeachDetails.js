@@ -7,6 +7,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { connect } from 'react-redux';
+import { toggleFavourite } from '../redux/actions';
 
 const checkURL = (url) => {
   return(url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -48,16 +49,30 @@ class BeachDetails extends Component {
         const noImage = require('../assets/image/noimage.jpg');
         if(images.length === 0) { images.push(noImage) }
         currentBeach.images = images;
+        currentBeach.id = currentBeach.ID;
+        currentBeach.name = currentBeach.NameMobileWeb;
         console.log('ccd', currentBeach);  
         this.setState({ beach: currentBeach })
       }
     })
   }
 
+  favouriteChecker(beach) {
+    let found = false;
+    this.props.favourites?.map((b) => {
+      if(b.id === beach.id) { 
+        found = true;
+      }
+      return b;
+    });
+    return found;
+  }
+
   render() {
+    console.log('fav prop', this.props.favourites);
     const { beach } = this.state;
     if (beach) {
-      const name = beach.NameMobileWeb;
+      const name = beach.name;
       // TODO: Try an image slider later https://github.com/alielkhateeb/mui-image-slider
       return (
         <ThemeProvider theme={theme}>
@@ -95,8 +110,8 @@ class BeachDetails extends Component {
                 <Box sx={{ margin: 'auto' }}>
                     <Grid container>
                         <Grid item md={1} sm={12} xs={12}>
-                          <Button sx={{ height: 1, width: 100, marginTop: 1 }}>
-                            <FavoriteIcon style={{ color: 'white', fontSize: 30 }} />
+                          <Button sx={{ height: 1, width: 100, marginTop: 1 }} onClick={() => { this.props.toggleFavourite(beach) }}>
+                            <FavoriteIcon style={{ color: this.favouriteChecker(beach) ? "red" : "white", fontSize: 30 }} />
                           </Button>
                         </Grid>
                         <Grid item md={2} sm={12} xs={12}>
@@ -141,11 +156,11 @@ class BeachDetails extends Component {
 
 
 const mapStateToProps = (state) => ({
-
+  favourites: state.favourites
 });
 
 const mapDispatchToProps = (dispatch) => ({ 
-
+  toggleFavourite: (beach) => dispatch(toggleFavourite(beach))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BeachDetails);
