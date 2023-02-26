@@ -8,7 +8,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { connect } from 'react-redux';
 import { toggleFavourite } from '../redux/actions';
-
 import { useParams } from "react-router-dom";
 
 function withParams(Component) {
@@ -55,8 +54,7 @@ class BeachDetails extends Component {
         if(images.length === 0) { images.push(noImage) }
         currentBeach.images = images;
         currentBeach.id = currentBeach.ID;
-        currentBeach.name = currentBeach.NameMobileWeb;
-        console.log('ccd', currentBeach);  
+        currentBeach.name = currentBeach.NameMobileWeb;  
         this.setState({ beach: currentBeach })
       }
     })
@@ -81,8 +79,7 @@ class BeachDetails extends Component {
       return (
         <ThemeProvider theme={theme}>
           <Box>
-            <Box sx={{ height: '140vh', backgroundColor: 'black',  color: 'white', marginTop: 10, textAlign: 'center', borderRadius: 5,
-                      paddingTop: 3 }}>
+            <Box sx={{ backgroundColor: 'black',  color: 'white', marginTop: 7, textAlign: 'center', borderRadius: 1 }}>
                 
                 <Typography sx={{ textTransform: 'upperCase', fontFamily: 'fantasy' }} variant='h3'>
                   { name }

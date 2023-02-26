@@ -34,7 +34,7 @@ export default function Beaches() {
   return (
     <Box>
        { beachData ? (
-          <Grid style={{ textAlign: 'center', padding: '70px 10px 0px 10px' }} container spacing={2}>
+          <Grid style={{ backgroundColor: 'rgb(68,68,68)', textAlign: 'center', padding: '70px 10px 0px 10px' }} container spacing={2}>
             { beachData.map((beach) => { 
               return (
                 <BeachCard key={beach.id} beach={beach} image={beach.image}/>

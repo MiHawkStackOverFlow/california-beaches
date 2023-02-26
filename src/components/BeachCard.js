@@ -22,7 +22,7 @@ export default function BeachCard(props) {
   const finalImage = image ? image :  require('../assets/image/noimage.jpg');
   return (
     <ThemeProvider theme={theme}>
-      <Grid item xs={12} sm={2}>
+      <Grid item xs={12} sm={4} lg={2}>
         <Link to={"/beach/" + id} style={{ textDecoration: 'none' }}>
           <Card sx={{ paddingTop: 5, cursor: 'pointer', backgroundColor: 'black', color: 'white', ":hover": { backgroundColor: "rgb(90, 90, 90)" }, }}>
             <CardMedia sx={{
@@ -32,7 +32,7 @@ export default function BeachCard(props) {
                 xxs: 300,
                 xs: 300,
                 sm: 300,
-                md: 150,
+                md: 300,
                 lg: 150,
                 xl: 150
               }
