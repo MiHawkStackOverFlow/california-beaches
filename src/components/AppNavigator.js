@@ -25,6 +25,9 @@ export default function AppNavigator() {
           <Link to="/favourites" style={{ color: '#FFF' }}>
             <Typography variant="h6" style={{ marginLeft: 15 }}>Favourites</Typography>
           </Link>
+          <Link to="/map" style={{ color: '#FFF' }}>
+            <Typography variant="h6" style={{ marginLeft: 15 }}>Map</Typography>
+          </Link>
         </Toolbar>
       </AppBar>
     </ThemeProvider>  
