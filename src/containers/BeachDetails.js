@@ -9,6 +9,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { connect } from 'react-redux';
 import { toggleFavourite } from '../redux/actions';
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function withParams(Component) {
   return props => <Component {...props} params={useParams()} />;
@@ -54,7 +55,9 @@ class BeachDetails extends Component {
         if(images.length === 0) { images.push(noImage) }
         currentBeach.images = images;
         currentBeach.id = currentBeach.ID;
-        currentBeach.name = currentBeach.NameMobileWeb;  
+        currentBeach.name = currentBeach.NameMobileWeb;
+        currentBeach.lat = currentBeach.LATITUDE;
+        currentBeach.lng = currentBeach.LONGITUDE;  
         this.setState({ beach: currentBeach })
       }
     })
@@ -84,6 +87,12 @@ class BeachDetails extends Component {
                 <Typography sx={{ textTransform: 'upperCase', fontFamily: 'fantasy' }} variant='h3'>
                   { name }
                 </Typography>
+
+                <Link to="/map" style={{ color: 'green', textDecoration: 'none' }} state={{ lat: beach.lat, lng: beach.lng }}>
+                  <Typography sx={{ fontFamily: 'fantasy' }} variant='h6'>
+                    <span> View on Google Maps </span>
+                  </Typography>
+                </Link>
                 
                 <ImageList sx={{ 
                    width: {

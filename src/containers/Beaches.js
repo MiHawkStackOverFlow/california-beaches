@@ -23,7 +23,9 @@ export default function Beaches() {
                                                    : (beach.Photo_3 && checkURL(beach.Photo_3) ? beach.Photo_3 
                                                                     : (beach.Photo_4 && checkURL(beach.Photo_4) ? beach.Photo_4 
                                                                       : null)))),
-            name: beach.NameMobileWeb 
+            name: beach.NameMobileWeb,
+            lat: beach.LATITUDE,
+            lng: beach.LONGITUDE 
           };
           newBeachData.push(beachObject);   
         });
