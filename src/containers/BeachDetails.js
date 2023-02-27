@@ -82,24 +82,38 @@ class BeachDetails extends Component {
       return (
         <ThemeProvider theme={theme}>
           <Box>
-            <Box sx={{ backgroundColor: 'black',  color: 'white', marginTop: 7, textAlign: 'center', borderRadius: 1 }}>
+            <Box sx={{ backgroundColor: 'black',  color: 'white', marginTop: 6, textAlign: 'center', width: '100%' }}>
                 
-                <Typography sx={{ textTransform: 'upperCase', fontFamily: 'fantasy' }} variant='h3'>
-                  { name }
-                </Typography>
+                <Box sx={{ display: 'flex',
+                          margin: '30px 0', flexDirection: { 
+                            xxs: 'column',
+                            xs: 'column',
+                            sm: 'column',
+                            md: 'row',
+                            lg: 'row',
+                            xl: 'row'
+                          }, justifyContent: 'space-between' }}>
+                    <Button sx={{ marginTop: 1 }} onClick={() => { this.props.toggleFavourite(beach) }}>
+                        <FavoriteIcon style={{ color: this.favouriteChecker(beach) ? "red" : "white", fontSize: 30 }} />
+                    </Button>
 
-                <Link to="/map" style={{ color: 'green', textDecoration: 'none' }} state={{ lat: beach.lat, lng: beach.lng }}>
-                  <Typography sx={{ fontFamily: 'fantasy' }} variant='h6'>
-                    <span> View on Google Maps </span>
-                  </Typography>
-                </Link>
+                    <Typography sx={{ textTransform: 'upperCase', fontFamily: 'fantasy' }} variant='h3'>
+                      { name }
+                    </Typography>
+
+                    <Link to="/map" style={{ color: 'green', textDecoration: 'none', padding: 10 }} state={{ lat: beach.lat, lng: beach.lng }}>
+                      <Typography sx={{ fontFamily: 'fantasy' }} variant='h6'>
+                        <span> View on Google Maps </span>
+                      </Typography>
+                    </Link>
+                </Box> 
                 
                 <ImageList sx={{ 
                    width: {
                     xxs: 300,
                     xs: 300,
-                    sm: 300,
-                    md: 1000,
+                    sm: 500,
+                    md: 800,
                     lg: 1000,
                     xl: 1000
                   },
@@ -119,11 +133,6 @@ class BeachDetails extends Component {
 
                 <Box sx={{ margin: 'auto' }}>
                     <Grid container>
-                        <Grid item md={1} sm={12} xs={12}>
-                          <Button sx={{ height: 1, width: 100, marginTop: 1 }} onClick={() => { this.props.toggleFavourite(beach) }}>
-                            <FavoriteIcon style={{ color: this.favouriteChecker(beach) ? "red" : "white", fontSize: 30 }} />
-                          </Button>
-                        </Grid>
                         <Grid item md={2} sm={12} xs={12}>
                           <Typography sx={{ fontSize: 20, marginTop: 2 }}>
                             Name: <br/> { name }
@@ -147,6 +156,11 @@ class BeachDetails extends Component {
                         <Grid item md={2} sm={12} xs={12}>
                           <Typography sx={{ fontSize: 20, marginTop: 2 }}>
                             AREA:  <br/> { beach.GEOGR_AREA }
+                          </Typography>
+                        </Grid>
+                        <Grid item md={2} sm={12} xs={12}>
+                          <Typography sx={{ fontSize: 20, marginTop: 2 }}>
+                            FEE:  <br/> { beach.FEE }
                           </Typography>
                         </Grid> 
                     </Grid>

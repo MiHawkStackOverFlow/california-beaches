@@ -17,7 +17,7 @@ export default function Map() {
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.BEACH_APP_GOOGLE_MAPS_API_KEY }}
         defaultCenter={defaultProps.center}
-        defaultZoom={17}
+        defaultZoom={15}
       />
     </Box>
   );
