@@ -22,6 +22,16 @@ const theme = createTheme({
   }
 });
 
+const searchBeach = (searchTerm, beach) => {
+  if(searchTerm === "") {
+    return beach;
+  } else if (beach.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+    return beach;
+  } else if (beach.county.toLowerCase().includes(searchTerm.toLowerCase())) {
+    return beach;
+  }
+}
+
 
 export default function Beaches() {
   const [beachData, setBeachData] = useState(null);
@@ -59,13 +69,7 @@ export default function Beaches() {
                     onChange={ (event) => { setSearchTerm(event.target.value) }} />
               <Grid style={{ textAlign: 'center', padding: '40px 10px 10px 10px' }} container spacing={2}>
                 { beachData.filter((beach) => {
-                  if(searchTerm === "") {
-                    return beach;
-                  } else if (beach.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                    return beach;
-                  } else if (beach.county.toLowerCase().includes(searchTerm.toLowerCase())) {
-                    return beach;
-                  }
+                  return searchBeach(searchTerm, beach);
                 }).map((beach) => { 
                   return (
                     <BeachCard key={beach.id} beach={beach} image={beach.image}/>
