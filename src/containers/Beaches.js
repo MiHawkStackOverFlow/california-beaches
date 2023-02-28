@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import BeachCard from "../components/BeachCard";
 import { CALIFORNIA_BEACHES_API_URL } from '../config';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CheckBox from "../components/Checkbox";
 
 const checkURL = (url) => {
   return(url.toLowerCase().match(/\.(jpeg|jpg|gif|png)$/) != null);
@@ -36,6 +37,9 @@ const searchBeach = (searchTerm, beach) => {
 export default function Beaches() {
   const [beachData, setBeachData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const handleFilters = (filters, category) => {
+    console.log("filter data in parent", filters);
+  }
   useEffect(() => {
     axios.get(CALIFORNIA_BEACHES_API_URL).then((response) => { 
       if(response.status >= 200 && response.status < 300) {
@@ -64,9 +68,13 @@ export default function Beaches() {
     <Box>
        { beachData ? (
          <ThemeProvider theme={theme}>
-            <Box  style={{ height: '100%', width: '100%', backgroundColor: 'rgb(68,68,68)', textAlign: 'center' }}>
-              <input style={{ width: '70%', marginTop: '70px', padding: '10px' }} type="text" placeholder="Search For a Beach by name or county" 
+            <Box style={{ height: '100%', width: '100%', backgroundColor: 'rgb(68,68,68)', textAlign: 'center' }}>
+              <input style={{ width: '70%', marginTop: '70px', padding: '15px', borderRadius: 5 }} type="text" placeholder="Search For a Beach by name or county" 
                     onChange={ (event) => { setSearchTerm(event.target.value) }} />
+              <br />
+              <Box>
+                <CheckBox handleFilters={ filters => handleFilters(filters, "facilities") }/>
+              </Box>      
               <Grid style={{ textAlign: 'center', padding: '40px 10px 10px 10px' }} container spacing={2}>
                 { beachData.filter((beach) => {
                   return searchBeach(searchTerm, beach);
