@@ -117,8 +117,8 @@ is to show list of beaches California has to offer to beachgoers and public.
 
    
    2. Details page with images and beach details 
-      
-    ![Details Page](https://user-images.githubusercontent.com/20744146/222201114-6506494c-60f8-4460-bdd3-b3cb807fce17.gif)
+    
+    ![Details Page](https://user-images.githubusercontent.com/20744146/222205550-2160197e-fa83-4e2d-8af1-579bdbb6df36.gif)
 
 
    3. Favourite Beach and List View of Favourite Beaches 
