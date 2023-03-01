@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+const linkStyle = { color: '#FFF', textDecoration: 'none', marginLeft: 20 };
+
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -19,11 +21,11 @@ export default function AppNavigator() {
     <ThemeProvider theme={darkTheme}>
       <AppBar position="fixed" color="primary">
         <Toolbar variant="dense">
-          <Link to="/" style={{ color: '#FFF' }}>
+          <Link to="/" style={linkStyle}>
             <Typography variant="h6">Beaches</Typography>
           </Link>
-          <Link to="/favourites" style={{ color: '#FFF' }}>
-            <Typography variant="h6" style={{ marginLeft: 15 }}>Favourites</Typography>
+          <Link to="/favourites" style={linkStyle}>
+            <Typography variant="h6">Favourites</Typography>
           </Link>
         </Toolbar>
       </AppBar>

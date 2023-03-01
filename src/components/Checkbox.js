@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { filterData } from '../config';
 
+const accordionStyle = { width: '72%', margin: 'auto', marginTop: 5 };
+
 export default function CheckBox(props) {
   const [checked, setChecked] = useState([]);
 
@@ -26,7 +28,7 @@ export default function CheckBox(props) {
 
   return(
     <div >
-      <Accordion style={{ width: '72%', margin: 'auto', marginTop: 5 }}>
+      <Accordion style={accordionStyle}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
