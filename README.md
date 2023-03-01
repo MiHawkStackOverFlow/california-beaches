@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+## Understanding the Requirements and Data
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Before building the application it was important to identify the problem or need. In this case the purpose of this web application
+is to show list of beaches California has to offer to beachgoers and public.
 
-## Available Scripts
+2. Identifying the detailed list of requirements by going through the requirements PDF shared to determine the features
+ and functionalities I will need to include. These are but not limited to below but can be generalised as :-
 
-In the project directory, you can run:
+    - should provide users with information about different beaches in California (Grid list)      
+    - details about the beach on a detailed page 
+      - ability to check all available photos of the beach
+      - mark a beach as a favourite and list all favourite beaches
+      - navigate to map view to see location
+    - quickly find a beach on Google Maps (Map view)
+    - search by name or county
+    - filter beaches using available facilities
 
-### `npm start`
+3. Planning the architecture of the application to determine how different components will interact and how data will be managed.
+   Most of the data will come from beach object from https://api.coastal.ca.gov/access/v1/locations/id/1 so analysis is important first step.
+ 
+    - API provided has 1265 items which is quite heavy data to load but can be optimized later using pagination or infinite scroll and/or useMemo      
+    - Grid view page of all the beaches should be available to user (Beaches Component) to see all beaches (name and image is good enough but some beaches not 
+    showing any image so a default image is needed to be shown that no image is available if photo in photos properties not found)
+      - Search can be added later once all data is available and initial beaches page is showing records (search is by name and/or county)
+      - Filtering on the data can be added later once all data is available and initial beaches page is showing records (beach object has lots of params)
+    - Details page should show all relevant data from the object for each beach relevant to user. Checked JSON formatter online to understand beach object.
+      - For example the https://api.coastal.ca.gov/access/v1/locations/id/1 record shows data like below :-
+        // Image here
+    - Map view to show location of beach on Google Maps. Beach object has lat and long which can be used.
+    - Favourite beaches page with Grid view list 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. Created a wireframe and prototype using few examples found online like Movies website to create a basic wireframe for Grid and Details pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. Goal was to design a baisc user interface that is intuitive and user-friendly. This included choosing the right color scheme, typography.
+   Referred a few websites over the internet to choose a basic theme and colors to go initally.
 
-### `npm test`
+6. Testing and Deployment are pending for later releases so to make it accessible to your target audience and maintain and update it to ensure it 
+remains secure and functional.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
