@@ -19,7 +19,7 @@ is to show list of beaches California has to offer to beachgoers and public.
     Checked JSON formatter online to understand beach object. For example the https://api.coastal.ca.gov/access/v1/locations/id/1 
     record shows data like below :-
      
-    [![beach.png](https://i.postimg.cc/fyZnZCBN/beach.png)](https://postimg.cc/HcSP9QqZ)
+  [![beach.png](https://i.postimg.cc/fyZnZCBN/beach.png)](https://postimg.cc/HcSP9QqZ)
    
   1. Most of the data will come from beach object from https://api.coastal.ca.gov/access/v1/locations/id/1 so analysis is important first step.
  
