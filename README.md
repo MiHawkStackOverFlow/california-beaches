@@ -16,8 +16,8 @@ is to show list of beaches California has to offer to beachgoers and public.
     - filter beaches using available facilities
 
 ## Planning the architecture of the application to determine how different components will interact and how data will be managed.
-    Checked JSON formatter online to understand beach object. For example the https://api.coastal.ca.gov/access/v1/locations/id/1 
-    record shows data like below :-
+    Checked JSON formatter online to understand beach object. 
+    For example the https://api.coastal.ca.gov/access/v1/locations/id/1 record shows data like below :-
      
   [![beach.png](https://i.postimg.cc/fyZnZCBN/beach.png)](https://postimg.cc/HcSP9QqZ)
    
@@ -49,3 +49,96 @@ is to show list of beaches California has to offer to beachgoers and public.
 
   4. Testing and Deployment are pending for later releases so to make it accessible to your target audience and maintain and update it to ensure it 
      remains secure and functional.
+     
+ 
+## npm commands used during the creation of this application
+
+  1. npx create-react-app california-beaches
+  2. npm i react-router-dom -s
+  3. npm i @mui/icons-material @mui/material -s   // react 18 does not work with @material/core and @material/icons installations
+  4. npm install axios
+  5. npm i @mui/styles --force  // to make makeStyles work but uninstalled later to use sx which is inline to finish project
+  6. npm install redux react-redux redux-persist -s
+  7. npm install google-map-react -s
+
+## Issues faced and links referred online during creation of this application
+
+  1. Majorly issues are with breaking changes between new react version 18 and older versions.
+     Many tutorials and apps on youtube and online as well as stackoverflow has more information on react 17 and lower
+  2. https://stackoverflow.com/questions/65486256/module-not-found-cant-resolve-emotion-react
+  3. https://stackoverflow.com/questions/68169108/attempted-import-error-makestyles-is-not-exported-from-material-ui-core-sty
+  4. https://stackoverflow.com/questions/28329382/understanding-unique-keys-for-array-children-in-react-js
+  5. refer for boilerplate code https://github.com/rt2zz/redux-persist
+  6. https://stackoverflow.com/questions/71944111/redux-createstore-is-deprecated-cannot-get-state-from-getstate-in-redux-ac
+  7. https://stackoverflow.com/questions/57444203/get-id-from-url-in-react-js
+  8. https://stackoverflow.com/questions/58548767/react-router-dom-useparams-inside-class-component
+  9. https://stackoverflow.com/questions/71948818/no-result-using-makestyles-material-ui-in-react-18
+  10. Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead. 
+     Until you switch to the new API, your app will behave as if it's running React 17. 
+     Learn more: https://reactjs.org/link/switch-to-createroot 
+     (Browser console error after running the app after integrating maps and changing the indexjs file)
+  11. https://github.com/google-map-react/google-map-react/issues/1116#issuecomment-1150589667
+  12. https://stackoverflow.com/questions/36376146/reactdom2-default-render-is-not-a-function
+  13. https://ui.dev/react-router-pass-props-to-link
+  14. https://stackoverflow.com/questions/55265604/uncaught-invariant-violation-too-many-re-renders-react-limits-the-number-of-re 
+      (For Checkbox MUI checked state getting above error so used HTML input for now)   
+  
+  ## Steps to integrate Google Maps into react project
+  
+    1. npm install google-map-react -s  // https://www.npmjs.com/package/google-map-react
+    2. go to https://console.cloud.google.com/getting-started
+    3. Create a Project ----> California Beaches
+    4. Search for Google Map Javascript API in Marketplace
+    5. Enable it using Enable Button and do not provide credit card details to avoid billing
+    6. Then go to credentials and create Credentials with API Key and copy Key generated
+    7. copy and paste key in .env file in project
+ 
+ ## Improvements requried in the current app
+ 
+   1. CSS is inline. Find alternative to useStyles or put in common place
+   2. Find better wireframes and UX to change page layouts later
+   3. Refactor code and put repeated code in common place
+   4. Mobile responsiveness handle in better way
+   5. Add Pagination or load on scroll for beaches list
+   6. Optimize app using below links and create pull requests whenever possible
+      - https://blog.logrocket.com/render-large-lists-react-5-methods-examples/
+      - https://reactjs.org/docs/optimizing-performance.html
+      - https://blog.bitsrc.io/10-ways-to-optimize-your-react-apps-performance-e5e437c9abce
+      - https://www.w3schools.com/react/react_usememo.asp ======> performance fix
+   7. Images load slowly on details page. Optimize to load faster or in the background.
+   8. Search and Filtering are slow for such huge data. Improve optmization and response time.
+
+     
+ ## Screenshots for different pages and use cases below created using ScreenToGif software :-
+ 
+   1. Landing Page with Beaches Grid List 
+   
+   ![Landing-Page](https://user-images.githubusercontent.com/20744146/222199135-bacf5b76-383d-40c2-a9c7-7b98b9852e3d.gif)
+
+   
+   2. Details page with images and beach details 
+      
+    ![Details Page](https://user-images.githubusercontent.com/20744146/222201114-6506494c-60f8-4460-bdd3-b3cb807fce17.gif)
+
+
+   3. Favourite Beach and List View of Favourite Beaches 
+   
+   ![Favourite Beach](https://user-images.githubusercontent.com/20744146/222202098-c8d2c8c7-3d5c-4676-8613-d1c2ac24bf27.gif)
+
+   
+   4. Map View of Beach 
+      
+   ![Map Beach](https://user-images.githubusercontent.com/20744146/222202668-a187a0ac-d802-4fef-94b2-9ab90a52cf31.gif)
+
+
+   5. Search a Beach
+   
+   ![Search Beach](https://user-images.githubusercontent.com/20744146/222203070-af90030b-1c02-4ba2-bfd5-77e9a25467e4.gif)
+
+   
+   6. Filter Beach by facilities   
+   
+   ![Filter Beach](https://user-images.githubusercontent.com/20744146/222203928-78fc5f4b-0e96-42dd-82d1-af93e8b450b9.gif)
+
+   
+   
