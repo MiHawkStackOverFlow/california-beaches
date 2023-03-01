@@ -118,7 +118,7 @@ is to show list of beaches California has to offer to beachgoers and public.
    
    2. Details page with images and beach details 
     
-    ![Details Page](https://user-images.githubusercontent.com/20744146/222205550-2160197e-fa83-4e2d-8af1-579bdbb6df36.gif)
+   [![Details-Page.gif](https://i.postimg.cc/PxBDH0fC/Details-Page.gif)](https://postimg.cc/YGz0fnW7)
 
 
    3. Favourite Beach and List View of Favourite Beaches 
@@ -142,8 +142,12 @@ is to show list of beaches California has to offer to beachgoers and public.
 
    7. Responsive Design
 
-    ![Responsive Design 2](https://user-images.githubusercontent.com/20744146/222223010-a93ea384-ff08-41d1-a6ea-824d58163b0b.gif)   
+   [![Responsive-Design-2.gif](https://i.postimg.cc/j21tBrR1/Responsive-Design-2.gif)](https://postimg.cc/tnFKVwZd)
+   
+   
+   [![Mobile-View.gif](https://i.postimg.cc/zXWG4VRS/Mobile-View.gif)](https://postimg.cc/4mfG94Pm)
+   
+   
     
     
-    ![Mobile View](https://user-images.githubusercontent.com/20744146/222223657-4e435da2-449f-4597-b5d0-317ba846267e.gif)
 
