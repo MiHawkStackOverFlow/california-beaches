@@ -18,7 +18,7 @@ export const filterData = [
   },
   {
     "_id": 4,
-    "name": "Restroom",
+    "name": "Restrooms",
     "value": "RESTROOMS"
   },
   {
@@ -118,16 +118,11 @@ export const filterData = [
   },
   {
     "_id": 24,
-    "name": "Boating",
-    "value": "BOATING"
-  },
-  {
-    "_id": 25,
     "name": "Beach Wheelchair",
     "value": "Bch_whlchr"
   },
   {
-    "_id": 26,
+    "_id": 25,
     "name": "Bike Path",
     "value": "BIKE_PATH"
   }

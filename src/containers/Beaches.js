@@ -33,12 +33,21 @@ const searchBeach = (searchTerm, beach) => {
   }
 }
 
-
 export default function Beaches() {
   const [beachData, setBeachData] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const handleFilters = (filters, category) => {
-    console.log("filter data in parent", filters);
+  const [filteredData, setFilteredData] = useState([]);
+  const pageData = (filteredData.length > 0) ? filteredData : beachData;
+  const handleFilters = (selectedFilters) => {
+    let newFilteredData = [];
+    if(selectedFilters.length > 0) {
+      newFilteredData = beachData.filter(beach => {
+        return selectedFilters.every(filter => beach[filter] === 'Yes');
+      });
+      setFilteredData(newFilteredData);
+    } else {
+      setFilteredData([]);
+    }
   }
   useEffect(() => {
     axios.get(CALIFORNIA_BEACHES_API_URL).then((response) => { 
@@ -46,18 +55,17 @@ export default function Beaches() {
         const results = response.data;
         let newBeachData = [];
         results.forEach((beach) => {
-          let beachObject = {
-            id: beach.ID,
-            image: ((beach.Photo_1 && checkURL(beach.Photo_1)) ? beach.Photo_1 
+          let beachObject = beach;
+          beachObject.id = beach.ID;
+          beachObject.image = ((beach.Photo_1 && checkURL(beach.Photo_1)) ? beach.Photo_1 
                                   : (beach.Photo_2 && checkURL(beach.Photo_2) ? beach.Photo_2 
                                                    : (beach.Photo_3 && checkURL(beach.Photo_3) ? beach.Photo_3 
                                                                     : (beach.Photo_4 && checkURL(beach.Photo_4) ? beach.Photo_4 
-                                                                      : null)))),
-            name: beach.NameMobileWeb,
-            lat: beach.LATITUDE,
-            lng: beach.LONGITUDE,
-            county: beach.COUNTY 
-          };
+                                                                      : null))));
+          beachObject.name = beach.NameMobileWeb;
+          beachObject.lat = beach.LATITUDE;
+          beachObject.lng = beach.LONGITUDE;
+          beachObject.county = beach.COUNTY; 
           newBeachData.push(beachObject);   
         });
         setBeachData(newBeachData);
@@ -66,17 +74,17 @@ export default function Beaches() {
   }, []);
   return (
     <Box>
-       { beachData ? (
+       { pageData ? (
          <ThemeProvider theme={theme}>
             <Box style={{ height: '100%', width: '100%', backgroundColor: 'rgb(68,68,68)', textAlign: 'center' }}>
               <input style={{ width: '70%', marginTop: '70px', padding: '15px', borderRadius: 5 }} type="text" placeholder="Search For a Beach by name or county" 
                     onChange={ (event) => { setSearchTerm(event.target.value) }} />
               <br />
               <Box>
-                <CheckBox handleFilters={ filters => handleFilters(filters, "facilities") }/>
+              <CheckBox handleFilters={ filters => handleFilters(filters) }/>
               </Box>      
               <Grid style={{ textAlign: 'center', padding: '40px 10px 10px 10px' }} container spacing={2}>
-                { beachData.filter((beach) => {
+                { pageData.filter((beach) => {
                   return searchBeach(searchTerm, beach);
                 }).map((beach) => { 
                   return (
