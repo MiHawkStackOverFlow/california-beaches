@@ -16,6 +16,10 @@ is to show list of beaches California has to offer to beachgoers and public.
     - filter beaches using available facilities
 
 ## Planning the architecture of the application to determine how different components will interact and how data will be managed.
+    Checked JSON formatter online to understand beach object. For example the https://api.coastal.ca.gov/access/v1/locations/id/1 
+    record shows data like below :-
+     
+    [![beach.png](https://i.postimg.cc/fyZnZCBN/beach.png)](https://postimg.cc/HcSP9QqZ)
    
   1. Most of the data will come from beach object from https://api.coastal.ca.gov/access/v1/locations/id/1 so analysis is important first step.
  
@@ -33,10 +37,6 @@ is to show list of beaches California has to offer to beachgoers and public.
          (beach object has lots of params)
          
     - Details page should show all relevant data from the object for each beach relevant to user. 
-      Checked JSON formatter online to understand beach object.
-      - For example the https://api.coastal.ca.gov/access/v1/locations/id/1 record shows data like below :-
-        
-        ![beach-object](https://user-images.githubusercontent.com/20744146/222175832-a726db85-8ffc-482c-9781-003a4d74270a.png)
         
     - Map view to show location of beach on Google Maps. Beach object has lat and long which can be used.
     
