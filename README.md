@@ -140,5 +140,10 @@ is to show list of beaches California has to offer to beachgoers and public.
    
    ![Filter Beach](https://user-images.githubusercontent.com/20744146/222203928-78fc5f4b-0e96-42dd-82d1-af93e8b450b9.gif)
 
-   
-   
+   7. Responsive Design
+
+    ![Responsive Design 2](https://user-images.githubusercontent.com/20744146/222223010-a93ea384-ff08-41d1-a6ea-824d58163b0b.gif)   
+    
+    
+    ![Mobile View](https://user-images.githubusercontent.com/20744146/222223657-4e435da2-449f-4597-b5d0-317ba846267e.gif)
+
