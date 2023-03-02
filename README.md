@@ -107,6 +107,8 @@ is to show list of beaches California has to offer to beachgoers and public.
       - https://www.w3schools.com/react/react_usememo.asp ======> performance fix
    7. Images load slowly on details page. Optimize to load faster or in the background.
    8. Search and Filtering are slow for such huge data. Improve optmization and response time.
+   9. https://github.com/bvaughn/react-window 
+   10. https://github.com/bvaughn/react-virtualized
 
      
  ## Screenshots for different pages and use cases below created using ScreenToGif software :-
