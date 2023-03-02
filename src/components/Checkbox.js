@@ -1,17 +1,18 @@
+import { filterData } from '../config';
+import _debounce from 'lodash/debounce';
 import React, { useState } from "react";
 import Accordion from '@mui/material/Accordion';
+import Typography from '@mui/material/Typography';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { filterData } from '../config';
 
 const accordionStyle = { width: '72%', margin: 'auto', marginTop: 5 };
 
 export default function CheckBox(props) {
   const [checked, setChecked] = useState([]);
 
-  const handleToggle = (value) => {
+  const handleToggle = _debounce((value) => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
     
@@ -24,7 +25,7 @@ export default function CheckBox(props) {
     setChecked(newChecked);
     // update this checked information into Parent Component 
     props.handleFilters(newChecked);
-  }
+  }, 100);
 
   return(
     <div >

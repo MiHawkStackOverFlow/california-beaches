@@ -1,4 +1,5 @@
 import axios from "axios";
+import _debounce from 'lodash/debounce';
 import CheckBox from "../components/Checkbox";
 import BeachCard from "../components/BeachCard";
 import React, { useEffect, useState } from "react";
@@ -15,6 +16,9 @@ export default function Beaches() {
     let newFilteredData = filerBeaches(beachData, selectedFilters);
     setFilteredData(newFilteredData);
   }
+  const setSearchQuery = _debounce(e => {
+    setSearchTerm(e.target.value);
+  }, 100);
   useEffect(() => {
     axios.get(CALIFORNIA_BEACHES_API_URL).then((response) => { 
       if(response.status >= 200 && response.status < 300) {
@@ -29,7 +33,7 @@ export default function Beaches() {
        { pageData ? (
          <ThemeProvider theme={theme}>
             <Box style={beachesMainBoxStyle}>
-              <input style={inputSearchStyle} type="text" placeholder="Search a Beach by name or county" onChange={(event) => { setSearchTerm(event.target.value)}} />
+              <input style={inputSearchStyle} type="text" placeholder="Search a Beach by name or county" onChange={setSearchQuery} />
               <br />
               <Box>
                 <CheckBox handleFilters={ filters => handleFilters(filters) }/>
