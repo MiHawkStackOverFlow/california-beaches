@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BeachCard from '../components/BeachCard';
 
-const favContainerStyles = { height: '100vh', backgroundColor: 'rgb(68,68,68)', paddingTop: 10, textAlign: 'center' };
+const favContainerStyles = { height: '100%', minHeight: '100vh', backgroundColor: 'rgb(68,68,68)', paddingTop: 10, textAlign: 'center' };
 
 class Favourites extends Component {
   render() {
